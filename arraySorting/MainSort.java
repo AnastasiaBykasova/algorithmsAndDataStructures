@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Main {
+public class MainSort {
     public static void main(String[] args) {
         // Создаем список чисел, заполняя его 500 рандомными числами
         List<Integer> numbers = new ArrayList<>();
