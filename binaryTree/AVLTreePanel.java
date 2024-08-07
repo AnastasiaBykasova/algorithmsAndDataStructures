@@ -1,16 +1,17 @@
 package binaryTree;
 
-import java.awt.*;
-import java.awt.geom.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
 
-public class BinaryTreePanel extends JPanel {
-    private BinaryTree tree;
+class AVLTreePanel extends JPanel {
+    private AVLTree tree;
     private int nodeSize = 30;
     private int horizontalSpacing = 50;
     private int verticalSpacing = 40;
 
-    public BinaryTreePanel(BinaryTree tree) {
+    public AVLTreePanel(AVLTree tree) {
         this.tree = tree;
     }
 
@@ -21,9 +22,7 @@ public class BinaryTreePanel extends JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
 
-        if (tree.root != null) {
-            drawTree(g2d, tree.root, getWidth() / 2, 30);
-        }
+        drawTree(g2d, tree.root, getWidth() / 2, 30);
     }
 
     private void drawTree(Graphics2D g2d, Node node, int x, int y) {

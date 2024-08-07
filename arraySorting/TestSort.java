@@ -1,10 +1,22 @@
 package arraySorting;
 
 import java.time.LocalTime;
+import java.util.Arrays;
 import java.util.List;
 
-public class QuickSort extends Sort {
-    public QuickSort(List<Integer> digits) {
+public class TestSort {
+
+    public static void main(String[] args) {
+        List<Integer> arr = Arrays.asList(7, 3, 5, 4, 8, 10);
+        System.out.println("Начальный список: " + arr);
+        TestQuickSort quickSort = new TestQuickSort(arr);
+        List<Integer> sortedList = quickSort.runSort(arr);
+        System.out.println("Отсортированный список: " + sortedList);
+    }
+}
+
+class TestQuickSort extends Sort {
+    public TestQuickSort(List<Integer> digits) {
         super(digits);
     }
 
@@ -16,13 +28,15 @@ public class QuickSort extends Sort {
 
         LocalTime finishTime = LocalTime.now();
         String execTime = getExecutionTime(startTime, finishTime);
-        System.out.println("Время выполнения сортировки QuickSort: " + execTime);
         return digits;
     }
 
     private void sort(List<Integer> digits, int first, int last) {
         if (first < last) {
             int partitionIndex = partition(digits, first, last);
+
+            System.out.println("Состояние списка после разделения: " + digits);
+
             sort(digits, first, partitionIndex - 1);
             sort(digits, partitionIndex + 1, last);
         }
@@ -35,6 +49,9 @@ public class QuickSort extends Sort {
             if (digits.get(j) <= pivot) {
                 i++;
                 swap(digits, i, j);
+
+                // Выводим состояние списка после каждого обмена
+                System.out.println("Состояние списка после обмена: " + digits);
             }
         }
         swap(digits, i + 1, last);

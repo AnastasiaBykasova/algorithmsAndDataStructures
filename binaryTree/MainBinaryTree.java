@@ -1,8 +1,5 @@
 package binaryTree;
 
-import java.awt.*;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
 import javax.swing.*;
 
 public class MainBinaryTree {
@@ -17,6 +14,8 @@ public class MainBinaryTree {
         bt.root.left.right = new Node(4);
         bt.root.right.left = new Node(7);
         bt.root.right.right = new Node(10);
+        bt.root.left.left.left = new Node(11);
+        bt.root.left.left.left.right = new Node(12);
 
         bt.insert(6);
         bt.delete(2);
@@ -44,6 +43,14 @@ public class MainBinaryTree {
         System.out.println("Iterative search: " + bt.searchIterative(valueSearch3));
         System.out.println("\n");
 
+        // Визуализация бинарного дерева
+        JFrame bTree = new JFrame("Binary Tree Visualization");
+        bTree.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        bTree.setSize(600, 400);
+        bTree.add(new BinaryTreePanel(bt));
+        bTree.setVisible(true);
+
+
         // AVL tree
         System.out.println("AVL tree");
         AVLTree avl = new AVLTree();
@@ -54,6 +61,8 @@ public class MainBinaryTree {
         avl.insert(4);
         avl.insert(7);
         avl.insert(10);
+        avl.insert(11);
+        avl.insert(12);
 
         // Вставка узла
         avl.insert(6);
@@ -65,11 +74,11 @@ public class MainBinaryTree {
         System.out.println("Recursive search: " + avl.searchRecursive(valueSearch));
         System.out.println("Iterative search: " + avl.searchIterative(valueSearch));
 
-        // Визуализация дерева
-        JFrame frame = new JFrame("AVL Tree Visualization");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
-        frame.add(new BinaryTreePanel(avl));
-        frame.setVisible(true);
+        // Визуализация дерева AVL
+        JFrame treeAvl = new JFrame("AVL Tree Visualization");
+        treeAvl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        treeAvl.setSize(600, 400);
+        treeAvl.add(new AVLTreePanel(avl));
+        treeAvl.setVisible(true);
     }
 }
