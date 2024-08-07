@@ -7,8 +7,12 @@
 
 ## binaryTree
 
-Реализация бинарного поиска в бинарном дереве и дереве AVL
+Реализация бинарного поиска в бинарном дереве и дереве AVL.
 
 ## collections
 
-Реализация ArrayList, HashSet, HashMap, LinkedHashSet, LinkedHashMap
+Реализация ArrayList, HashSet, HashMap, LinkedHashSet, LinkedHashMap.
+
+## multithreading
+
+Реализациия базового функционала многопоточности. Мьютекс, семафор.
